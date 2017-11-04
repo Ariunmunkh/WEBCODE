@@ -2,6 +2,6 @@
 #include<conio.h>
 int main()
 {
-printf("test code 2");
+printf("test hh code 2");
 return 0;
 }
