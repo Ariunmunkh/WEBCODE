@@ -2,6 +2,6 @@
 #include<conio.h>
 int main()
 {
-printf("test Muugii ankha teneg");
+printf("test Muugii");
 return 0;
 }
