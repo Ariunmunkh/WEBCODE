@@ -40,6 +40,13 @@ namespace WebCode.Controllers
 
             return View();
         }
-        
+
+        public ActionResult EventDetails()
+        {
+            ViewBag.Message = "Your application description page.";
+
+            return View();
+        }
+
     }
 }
