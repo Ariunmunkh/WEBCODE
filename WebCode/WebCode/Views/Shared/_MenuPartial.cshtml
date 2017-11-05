@@ -1,0 +1,92 @@
+﻿
+@{
+    ViewBag.Title = "_MenuPartial";
+}
+
+<div class="main-menu">
+    <div class="container">
+        <a href="index.html" class="float-left logo"><img src="~/Content/images/logo/logo.png" alt="Logo"></a>
+
+        <!-- Menu -->
+        <nav class="navbar float-right">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed p-color-bg" data-toggle="collapse" data-target="#navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    Menu
+                    <i class="fa fa-angle-down" aria-hidden="true"></i>
+                </button>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="dropdown-holder current-active">
+                        <a href="index.html">HOME</a>
+                        <ul class="sub-menu">
+                            <li><a href="@Url.Action("Index", "Home")" class="tran3s">Home Version One</a></li>
+                            <li><a href="@Url.Action("Index2", "Home")" class="tran3s">Home Version Two</a></li>
+                            <li><a href="index-3.html" class="tran3s">Home Version Three</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown-holder">
+                        <a href="about-us.html">About</a>
+                        <ul class="sub-menu">
+                            <li><a href=""@Url.Action("About", "Home")" class="tran3s">About us One</a></li>
+                            <li><a href="about-us-2.html" class="tran3s">About us Two</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown-holder">
+                        <a href="events.html">Events</a>
+                        <ul class="sub-menu">
+                            <li><a href="events-details.html" class="tran3s">Event details</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown-holder">
+                        <a href="gallery-v1.html">Gallery</a>
+                        <ul class="sub-menu">
+                            <li><a href="gallery-v1.html" class="tran3s">Gallery One</a></li>
+                            <li><a href="gallery-v2.html" class="tran3s">Gallery Two</a></li>
+                            <li><a href="gallery-v3.html" class="tran3s">Gallery Three</a></li>
+                            <li><a href="gallery-v4.html" class="tran3s">Gallery Four</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown-holder">
+                        <a href="cause.html">Causes</a>
+                        <ul class="sub-menu">
+                            <li><a href="cause-details-1.html" class="tran3s">Cause Details one</a></li>
+                            <li><a href="cause-details-2.html" class="tran3s">Cause Details Two</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown-holder">
+                        <a href="#">Page</a>
+                        <ul class="sub-menu">
+                            <li><a href="staff.html" class="tran3s">Staff page</a></li>
+                            <li><a href="staff-profile-v1.html" class="tran3s">Staff Profile</a></li>
+                            <li><a href="staff-profile-v2.html" class="tran3s">Staff Profile Two</a></li>
+                            <li><a href="donation.html" class="tran3s">Donation</a></li>
+                            <li><a href="faq.html" class="tran3s">FAQ</a></li>
+                            <li><a href="404.html" class="tran3s">Error-404</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown-holder">
+                        <a href="blog-v1.html">Blog</a>
+                        <ul class="sub-menu">
+                            <li><a href="blog-v1.html" class="tran3s">Blog one</a></li>
+                            <li><a href="blog-v2.html" class="tran3s">Blog Two</a></li>
+                            <li><a href="blog-v3.html" class="tran3s">Blog Three</a></li>
+                            <li><a href="blog-details.html" class="tran3s">Blog Details</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </nav>
+        <button class="search-button p-color-bg" id="searchDropdown"><i class="fa fa-search-minus" aria-hidden="true"></i></button>
+        <form action="#" class="search-form tran3s">
+            <div class="container">
+                <input type="text" placeholder="To Search Start Typing...">
+                <div class="close-search"><i class="fa fa-times" aria-hidden="true"></i></div>
+            </div>
+        </form>
+    </div> <!-- /.container -->
+</div> <!-- /.main-menu -->
