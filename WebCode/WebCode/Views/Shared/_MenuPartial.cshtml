@@ -1,9 +1,8 @@
-﻿
+﻿@model WebCode.Controllers.HomeItem
 @{
     ViewBag.Title = "_MenuPartial";
 }
 
-<div class="main-menu">
     <div class="container">
         <a href="index.html" class="float-left logo"><img src="~/Content/images/logo/logo.png" alt="Logo"></a>
 
@@ -20,64 +19,84 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li class="dropdown-holder current-active">
-                        <a href="index.html">HOME</a>
-                        <ul class="sub-menu">
-                            <li><a href="@Url.Action("Index", "Home")" class="tran3s">Home Version One</a></li>
-                            <li><a href="@Url.Action("Index2", "Home")" class="tran3s">Home Version Two</a></li>
-                            <li><a href="index-3.html" class="tran3s">Home Version Three</a></li>
-                        </ul>
-                    </li>
-                    <li class="dropdown-holder">
-                        <a href="about-us.html">About</a>
-                        <ul class="sub-menu">
-                            <li><a href="@Url.Action("About", "Home")" class="tran3s">About us One</a></li>
-                            <li><a href="about-us-2.html" class="tran3s">About us Two</a></li>
-                        </ul>
-                    </li>
-                    <li class="dropdown-holder">
-                        <a href="events.html">Events</a>
-                        <ul class="sub-menu">
-                            <li><a href="@Url.Action("EventDetails", "Home")" class="tran3s">Event details</a></li>
-                        </ul>
-                    </li>
-                    <li class="dropdown-holder">
-                        <a href="gallery-v1.html">Gallery</a>
-                        <ul class="sub-menu">
-                            <li><a href="gallery-v1.html" class="tran3s">Gallery One</a></li>
-                            <li><a href="gallery-v2.html" class="tran3s">Gallery Two</a></li>
-                            <li><a href="gallery-v3.html" class="tran3s">Gallery Three</a></li>
-                            <li><a href="gallery-v4.html" class="tran3s">Gallery Four</a></li>
-                        </ul>
-                    </li>
-                    <li class="dropdown-holder">
-                        <a href="cause.html">Causes</a>
-                        <ul class="sub-menu">
-                            <li><a href="cause-details-1.html" class="tran3s">Cause Details one</a></li>
-                            <li><a href="cause-details-2.html" class="tran3s">Cause Details Two</a></li>
-                        </ul>
-                    </li>
-                    <li class="dropdown-holder">
-                        <a href="#">Page</a>
-                        <ul class="sub-menu">
-                            <li><a href="staff.html" class="tran3s">Staff page</a></li>
-                            <li><a href="staff-profile-v1.html" class="tran3s">Staff Profile</a></li>
-                            <li><a href="staff-profile-v2.html" class="tran3s">Staff Profile Two</a></li>
-                            <li><a href="donation.html" class="tran3s">Donation</a></li>
-                            <li><a href="faq.html" class="tran3s">FAQ</a></li>
-                            <li><a href="404.html" class="tran3s">Error-404</a></li>
-                        </ul>
-                    </li>
-                    <li class="dropdown-holder">
-                        <a href="blog-v1.html">Blog</a>
-                        <ul class="sub-menu">
-                            <li><a href="blog-v1.html" class="tran3s">Blog one</a></li>
-                            <li><a href="blog-v2.html" class="tran3s">Blog Two</a></li>
-                            <li><a href="blog-v3.html" class="tran3s">Blog Three</a></li>
-                            <li><a href="blog-details.html" class="tran3s">Blog Details</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="contact.html">Contact</a></li>
+                    @if (Model != null)
+                    {
+                        foreach (var item in Model.menuitem)
+                        {
+                            var style = (item.name == "Home") ? "current-active" : "";
+
+                            <li class="dropdown-holder @style">
+                                <a href="@Url.Action(@item.action, "Home")">@item.name</a>
+                                @if (Model.childitem.Where(x => x.parentId == item.id).Count() > 0)
+                                {
+                                    <ul class="sub-menu">
+                                        @foreach (var child in Model.childitem.Where(x => x.parentId == item.id).ToList())
+                                        {
+                                            <li><a href="@Url.Action(@child.action, "Home")" class="tran3s">@child.name</a></li>
+                                        }
+                                    </ul>
+                                }
+                            </li>
+                        }
+                    }
+                    @*<li class="dropdown-holder current-active">
+                            <a href="index.html">HOME</a>
+                            <ul class="sub-menu">
+                                <li><a href="@Url.Action("Index", "Home")" class="tran3s">Home Version One</a></li>
+                                <li><a href="@Url.Action("Index2", "Home")" class="tran3s">Home Version Two</a></li>
+                                <li><a href="index-3.html" class="tran3s">Home Version Three</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown-holder">
+                            <a href="about-us.html">About</a>
+                            <ul class="sub-menu">
+                                <li><a href="@Url.Action("About", "Home")" class="tran3s">About us One</a></li>
+                                <li><a href="about-us-2.html" class="tran3s">About us Two</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown-holder">
+                            <a href="events.html">Events</a>
+                            <ul class="sub-menu">
+                                <li><a href="@Url.Action("EventDetails", "Home")" class="tran3s">Event details</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown-holder">
+                            <a href="gallery-v1.html">Gallery</a>
+                            <ul class="sub-menu">
+                                <li><a href="gallery-v1.html" class="tran3s">Gallery One</a></li>
+                                <li><a href="gallery-v2.html" class="tran3s">Gallery Two</a></li>
+                                <li><a href="gallery-v3.html" class="tran3s">Gallery Three</a></li>
+                                <li><a href="gallery-v4.html" class="tran3s">Gallery Four</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown-holder">
+                            <a href="cause.html">Causes</a>
+                            <ul class="sub-menu">
+                                <li><a href="cause-details-1.html" class="tran3s">Cause Details one</a></li>
+                                <li><a href="cause-details-2.html" class="tran3s">Cause Details Two</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown-holder">
+                            <a href="#">Page</a>
+                            <ul class="sub-menu">
+                                <li><a href="staff.html" class="tran3s">Staff page</a></li>
+                                <li><a href="staff-profile-v1.html" class="tran3s">Staff Profile</a></li>
+                                <li><a href="staff-profile-v2.html" class="tran3s">Staff Profile Two</a></li>
+                                <li><a href="donation.html" class="tran3s">Donation</a></li>
+                                <li><a href="faq.html" class="tran3s">FAQ</a></li>
+                                <li><a href="404.html" class="tran3s">Error-404</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown-holder">
+                            <a href="blog-v1.html">Blog</a>
+                            <ul class="sub-menu">
+                                <li><a href="@Url.Action("BlogV1", "Home")" class="tran3s">Blog one</a></li>
+                                <li><a href="blog-v2.html" class="tran3s">Blog Two</a></li>
+                                <li><a href="blog-v3.html" class="tran3s">Blog Three</a></li>
+                                <li><a href="blog-details.html" class="tran3s">Blog Details</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="contact.html">Contact</a></li>*@
                 </ul>
             </div><!-- /.navbar-collapse -->
         </nav>
@@ -89,4 +108,3 @@
             </div>
         </form>
     </div> <!-- /.container -->
-</div> <!-- /.main-menu -->

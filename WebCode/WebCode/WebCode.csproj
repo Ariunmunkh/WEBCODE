@@ -142,6 +142,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\BlogController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -699,10 +700,13 @@
     <Content Include="Views\Shared\_MenuPartial.cshtml" />
     <Content Include="Views\Home\EventDetails.cshtml" />
     <Content Include="Views\Shared\_EventDetailLayout.cshtml" />
+    <Content Include="Views\Home\BlogV1.cshtml" />
+    <Content Include="Views\Shared\_BlobV1Layout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+    <Folder Include="Views\Blog\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
